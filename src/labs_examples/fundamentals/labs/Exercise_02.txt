@@ -4,31 +4,170 @@
 
 Initializing git folder
     1. In CodingNomads folder, create new folder git_practice
+    $ mkdir git_practice
+
     2. Inside git_practice:
         a. Initialize folder as a git folder (make sure you are in the correct folder when initializing) by running
             the "git init" command within the git_practice folder.
+            $ cd git_practice/
+
+            nlu@USFNCSNL3 MINGW64 ~/Documents/CodingNomads/git_practice
+            $ git init
+            Initialized empty Git repository in C:/Users/nlu/Documents/CodingNomads/git_practice/.git/
+
+            nlu@USFNCSNL3 MINGW64 ~/Documents/CodingNomads/git_practice (master)
+            $ ls -al
+            total 8
+            drwxr-xr-x 1 nlu 1049089 0 May  7 13:48 ./
+            drwxr-xr-x 1 nlu 1049089 0 May  7 13:47 ../
+            drwxr-xr-x 1 nlu 1049089 0 May  7 13:48 .git/
+
         b. Make new file
+        $ touch new_file
+
         c. Add file
+        $ git add new_file
+        $ git status
+        On branch master
+
+        No commits yet
+
+        Changes to be committed:
+          (use "git rm --cached <file>..." to unstage)
+                new file:   new_file
+
         d. Commit file
+        $ git commit -m "Exercise_02 commit"
+        [master (root-commit) 74f0f4f] Exercise_02 commit
+         1 file changed, 0 insertions(+), 0 deletions(-)
+         create mode 100644 new_file
+
         c. On Github, create new git_practice repository
         d. Add this new GitHub repository as a new "remote" to your local Git repo. You can do this by using the command
             git remote add <ANY_NAME> <URL_OF_NEW_GITHUB_REPO.git>
+            $ git remote add practice https://github.com/nwlu/git_practice.git
+
+            nlu@USFNCSNL3 MINGW64 ~/Documents/CodingNomads/git_practice (master)
+            $ git remote -v
+            practice        https://github.com/nwlu/git_practice.git (fetch)
+            practice        https://github.com/nwlu/git_practice.git (push)
+
         d. Push commit file to Github
+        $ git push practice master
+        Enumerating objects: 3, done.
+        Counting objects: 100% (3/3), done.
+        Writing objects: 100% (3/3), 211 bytes | 211.00 KiB/s, done.
+        Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+        To https://github.com/nwlu/git_practice.git
+         * [new branch]      master -> master
+
         e. Practice the following git flow until you feel comfortable:
             i.   Create or modify file
+            $ git status
+            On branch master
+            Untracked files:
+              (use "git add <file>..." to include in what will be committed)
+                    write_file
+                    write_file2
+
+            nothing added to commit but untracked files present (use "git add" to track)
+
             ii.  Add file(s)
+            $ git add write_file write_file2
+            warning: in the working copy of 'write_file', LF will be replaced by CRLF the next time Git touches it
+            warning: in the working copy of 'write_file2', LF will be replaced by CRLF the next time Git touches it
+
+            nlu@USFNCSNL3 MINGW64 ~/Documents/CodingNomads/git_practice (master)
+            $ git status
+            On branch master
+            Changes to be committed:
+              (use "git restore --staged <file>..." to unstage)
+                    new file:   write_file
+                    new file:   write_file2
+
             iii. Commit file(s)
+            $ git commit -m "Added files to be pushed to github for practice"
+            [master 6f4ace2] Added files to be pushed to github for practice
+             2 files changed, 2 insertions(+)
+             create mode 100644 write_file
+             create mode 100644 write_file2
+
             iv.  Push file(s) to Github repository
+            $ git push practice master
+            Enumerating objects: 5, done.
+            Counting objects: 100% (5/5), done.
+            Delta compression using up to 8 threads
+            Compressing objects: 100% (2/2), done.
+            Writing objects: 100% (4/4), 398 bytes | 199.00 KiB/s, done.
+            Total 4 (delta 0), reused 0 (delta 0), pack-reused 0
+            To https://github.com/nwlu/git_practice.git
+               74f0f4f..6f4ace2  master -> master
 
 Adding a remote
     1. Create new personal repository on Github named "git_practice_2".
     2. On local machine, add the new remote address to the same git repo you were working with in the previous section above
         (directions are provided on Github with new repo is created)
+        $ git remote add practice_2 https://github.com/nwlu/git_practice_2.git
+
+        nlu@USFNCSNL3 MINGW64 ~/Documents/CodingNomads/git_practice (master)
+        $ git remote -v
+        practice        https://github.com/nwlu/git_practice.git (fetch)
+        practice        https://github.com/nwlu/git_practice.git (push)
+        practice_2      https://github.com/nwlu/git_practice_2.git (fetch)
+        practice_2      https://github.com/nwlu/git_practice_2.git (push)
+
     3. Push local git repository to your Github using the new remote.
+    $ git push practice_2 master
+    Enumerating objects: 7, done.
+    Counting objects: 100% (7/7), done.
+    Delta compression using up to 8 threads
+    Compressing objects: 100% (3/3), done.
+    Writing objects: 100% (7/7), 577 bytes | 144.00 KiB/s, done.
+    Total 7 (delta 0), reused 0 (delta 0), pack-reused 0
+    To https://github.com/nwlu/git_practice_2.git
+     * [new branch]      master -> master
 
 Cloning repository from Github
     1. Find a repository on Github
+    https://github.com/KrisVan/Pickleball-Scheduler.git
     2. Clone repository to local machine
     3. Create new repository on Github
+    https://github.com/nwlu/pickleball_scheduler.git
     4. Add new remote on local machine
+    $ git remote -v
+    origin  https://github.com/KrisVan/Pickleball-Scheduler.git (fetch)
+    origin  https://github.com/KrisVan/Pickleball-Scheduler.git (push)
+    pickle  https://github.com/nwlu/pickleball_scheduler.git (fetch)
+    pickle  https://github.com/nwlu/pickleball_scheduler.git (push)
     5. Push to new Github repository
+    $ git status
+    On branch main
+    Your branch is up to date with 'origin/main'.
+
+    Untracked files:
+      (use "git add <file>..." to include in what will be committed)
+            New_File.txt
+
+    nothing added to commit but untracked files present (use "git add" to track)
+
+    nlu@USFNCSNL3 MINGW64 ~/Documents/CodingNomads/Pickleball-Scheduler (main)
+    $ git add New_File.txt
+    warning: in the working copy of 'New_File.txt', LF will be replaced by CRLF the next time Git touches it
+
+    nlu@USFNCSNL3 MINGW64 ~/Documents/CodingNomads/Pickleball-Scheduler (main)
+    $ git commit -m "Added a new file"
+    [main d364fca] Added a new file
+     1 file changed, 1 insertion(+)
+     create mode 100644 New_File.txt
+
+    nlu@USFNCSNL3 MINGW64 ~/Documents/CodingNomads/Pickleball-Scheduler (main)
+    $ git push pickle main
+    Enumerating objects: 1750, done.
+    Counting objects: 100% (1750/1750), done.
+    Delta compression using up to 8 threads
+    Compressing objects: 100% (663/663), done.
+    Writing objects: 100% (1750/1750), 14.17 MiB | 2.74 MiB/s, done.
+    Total 1750 (delta 912), reused 1746 (delta 910), pack-reused 0
+    remote: Resolving deltas: 100% (912/912), done.
+    To https://github.com/nwlu/pickleball_scheduler.git
+     * [new branch]      main -> main
