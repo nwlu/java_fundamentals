@@ -8,5 +8,6 @@ class Example1 {
         int next = 10;
         int y = 7;
         System.out.println(next + y);
+
     }
 }

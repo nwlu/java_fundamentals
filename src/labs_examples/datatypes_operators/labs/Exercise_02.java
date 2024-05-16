@@ -24,6 +24,15 @@ public class Exercise_02 {
     public static void main(String[] args) {
 
         // write code here
+        int i = 10;
+        double d = (double) i;
+        System.out.println(i);
 
+        double dd = 10.5;
+        int ii = (int) dd;
+        System.out.println(ii);
+
+        //When widening, you lose memory space by casting to a larger primitive variable
+        //You lose the decimal when narrowing
     }
 }

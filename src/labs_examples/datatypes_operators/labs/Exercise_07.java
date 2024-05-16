@@ -24,6 +24,9 @@ public class Exercise_07 {
         int days = scanner.nextInt();
 
         // write completed code here
-
+        int hour = 24 * days;
+        int min = hour * 60;
+        int sec = min * 60;
+        System.out.println(sec);
     }
 }
