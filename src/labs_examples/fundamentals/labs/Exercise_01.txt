@@ -2,21 +2,92 @@ Fundamentals Exercise 1: CLI
      Perform the following tasks using the CLI and copy and paste the commands and results below
 
      1. Navigate to CodingNomads folder (or the space you have create for this project)
+     /Users/batman/Documents/CodingNomads
      2. Create new folder Terminal_testing
+     mkdir Terminal_testing
      3. Inside of folder Terminal_testing,
          a. create 3 new .txt files all with different names
+         vim File1.txt
+         vim File2.txt
+         vim File3.txt
          b. print the directory path
+         /Users/batman/Documents/CodingNomads/Terminal_testing
          c. list the contents of the folder
+         batman@Nicolass-Air Terminal_testing % ls -al
+         total 24
+         drwxr-xr-x@ 5 batman  staff  160 Jun 24 12:21 .
+         drwxr-xr-x@ 6 batman  staff  192 Jun 24 12:17 ..
+         -rw-r--r--@ 1 batman  staff    6 Jun 24 12:20 File1.txt
+         -rw-r--r--@ 1 batman  staff    6 Jun 24 12:20 File2.txt
+         -rw-r--r--@ 1 batman  staff    6 Jun 24 12:21 File3.txt
      5. Inside of folder Terminal_testing, create a new folder
+     mkdir NewFolder
      6. Copy a file from Terminal_testing to the new folder
+     batman@Nicolass-Air Terminal_testing % cp -p File3.txt NewFolder
+
+     batman@Nicolass-Air Terminal_testing % cd NewFolder
+     batman@Nicolass-Air NewFolder % ls -al
+     total 8
+     drwxr-xr-x@ 3 batman  staff   96 Jun 24 12:23 .
+     drwxr-xr-x@ 6 batman  staff  192 Jun 24 12:23 ..
+     -rw-r--r--@ 1 batman  staff    6 Jun 24 12:21 File3.txt
+
      7. Move a different file from Terminal_testing to the new folder
+     batman@Nicolass-Air Terminal_testing % mv File1.txt NewFolder
+     batman@Nicolass-Air Terminal_testing % ls -al
+     total 16
+     drwxr-xr-x@ 5 batman  staff  160 Jun 24 12:24 .
+     drwxr-xr-x@ 6 batman  staff  192 Jun 24 12:17 ..
+     -rw-r--r--@ 1 batman  staff    6 Jun 24 12:20 File2.txt
+     -rw-r--r--@ 1 batman  staff    6 Jun 24 12:21 File3.txt
+     drwxr-xr-x@ 4 batman  staff  128 Jun 24 12:24 NewFolder
+     batman@Nicolass-Air Terminal_testing % cd NewFolder
+     batman@Nicolass-Air NewFolder % ls -al
+     total 16
+     drwxr-xr-x@ 4 batman  staff  128 Jun 24 12:24 .
+     drwxr-xr-x@ 5 batman  staff  160 Jun 24 12:24 ..
+     -rw-r--r--@ 1 batman  staff    6 Jun 24 12:20 File1.txt
+     -rw-r--r--@ 1 batman  staff    6 Jun 24 12:21 File3.txt
+
      8. Demonstrate removing:
          a. A file
+         batman@Nicolass-Air NewFolder % ls -al
+         total 16
+         drwxr-xr-x@ 4 batman  staff  128 Jun 24 12:24 .
+         drwxr-xr-x@ 5 batman  staff  160 Jun 24 12:24 ..
+         -rw-r--r--@ 1 batman  staff    6 Jun 24 12:20 File1.txt
+         -rw-r--r--@ 1 batman  staff    6 Jun 24 12:21 File3.txt
+         batman@Nicolass-Air NewFolder % rm File3.txt
+         batman@Nicolass-Air NewFolder % ls -al
+         total 8
+         drwxr-xr-x@ 3 batman  staff   96 Jun 24 12:27 .
+         drwxr-xr-x@ 5 batman  staff  160 Jun 24 12:24 ..
+         -rw-r--r--@ 1 batman  staff    6 Jun 24 12:20 File1.txt
+
          b. A folder
+         batman@Nicolass-Air Terminal_testing % ls -al
+         total 16
+         drwxr-xr-x@ 5 batman  staff  160 Jun 24 12:24 .
+         drwxr-xr-x@ 6 batman  staff  192 Jun 24 12:17 ..
+         -rw-r--r--@ 1 batman  staff    6 Jun 24 12:20 File2.txt
+         -rw-r--r--@ 1 batman  staff    6 Jun 24 12:21 File3.txt
+         drwxr-xr-x@ 3 batman  staff   96 Jun 24 12:27 NewFolder
+         batman@Nicolass-Air Terminal_testing % rm -r NewFolder
+         batman@Nicolass-Air Terminal_testing % ls -al
+         total 16
+         drwxr-xr-x@ 4 batman  staff  128 Jun 24 12:27 .
+         drwxr-xr-x@ 6 batman  staff  192 Jun 24 12:17 ..
+         -rw-r--r--@ 1 batman  staff    6 Jun 24 12:20 File2.txt
+         -rw-r--r--@ 1 batman  staff    6 Jun 24 12:21 File3.txt
      9. CHALLENGE:
          a. Use $ vim to write some text inside a file
          b. Use $ cat print contents of file
+         batman@Nicolass-Air Terminal_testing % vim File2.txt
+         batman@Nicolass-Air Terminal_testing % cat File2.txt
+         File2
          c. Use $ grep to search for a word inside file
+         batman@Nicolass-Air Terminal_testing % grep 2 File2.txt
+         File2
 
 Example Output:
     1. cd ~/Documents/CodingNomads/
