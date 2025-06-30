@@ -24,6 +24,18 @@ public class Exercise_02 {
     public static void main(String[] args) {
 
         // write code here
+        //1. Declare and initialize an int with the value 10
+        int i = 10;
+        //2. Declare a double and set it equal to the int
+        double d = i;
+        //3. Print out the double
+        System.out.println(d);
 
+        //1. Declare and initialize a new double with the value 10.5
+        double b = 10.5;
+        //2. Declare a new int and set it equal to the double (make sure to cast the double to an int)
+        int t = (int) b;
+        //3. Print out the int
+        System.out.println(t);
     }
 }
