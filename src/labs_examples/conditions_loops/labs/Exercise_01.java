@@ -24,6 +24,14 @@ public class Exercise_01 {
         int number = scanner.nextInt();
 
         // write completed code here
-
+        if (number <= 1000000) {
+            if (number % 2 == 0) {
+                System.out.println("number is " + number + ": even");
+            } else if (number % 2 != 0) {
+                System.out.println("number is " + number + ": odd");
+            } else {
+                System.out.println("not found!!");
+            }
+        }
     }
 }
