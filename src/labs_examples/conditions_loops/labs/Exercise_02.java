@@ -39,6 +39,6 @@ public class Exercise_02 {
             System.out.println("Friday");
         }else if (number == 7) {
             System.out.println("Saturday");
-        }
+        }else System.out.println("Other");
     }
 }
