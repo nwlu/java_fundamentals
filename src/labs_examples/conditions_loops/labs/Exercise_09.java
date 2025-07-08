@@ -8,4 +8,12 @@ package labs_examples.conditions_loops.labs;
  */
 
 public class Exercise_09 {
+    public static void main(String[] args) {
+        for (int t = 0; t < 20; t++ ) {
+            if (t == 12){
+                break;
+            }
+            System.out.println("We're at " + t);
+        }
+    }
 }
