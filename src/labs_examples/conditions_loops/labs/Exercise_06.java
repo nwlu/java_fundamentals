@@ -11,21 +11,17 @@ import java.util.Scanner;
 
 public class Exercise_06 {
     public static void main(String[] args) {
-        int i = 0;
+        int sum = 0;
+        int i = 1;
 
-        //int i  = sum;
         while (i < 100) {
-            if (i <= 100) {
-               // int i = b;
-;
-               // i + b = i;
-                i++;
-            }
-            System.out.println(i + " is the sum");
+            sum += i;
+            i++;
+            System.out.println(sum + " is the sum");
         }
     }
 }
-class Main {
+/*class Main {
     public static void main(String[] args) {
         // write your code below this line
         int[] num = new int[3];
@@ -37,4 +33,4 @@ class Main {
 
         // keep your code above this line
     }
-}
+}*/
