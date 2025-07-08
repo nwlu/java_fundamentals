@@ -19,18 +19,6 @@ public class Exercise_06 {
             i++;
             System.out.println(sum + " is the sum");
         }
-    }
-}
-/*class Main {
-    public static void main(String[] args) {
-        // write your code below this line
-        int[] num = new int[3];
-        for(int i = 0; i < num.length; i++){
-            num[i] = i;
-        }
-
-
-
         // keep your code above this line
     }
-}*/
+}
