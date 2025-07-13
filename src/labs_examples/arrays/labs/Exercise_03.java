@@ -18,6 +18,21 @@ package labs_examples.arrays.labs;
 public class Exercise_03 {
 
     public static void main(String[] args) {
-        
+        int [][] array2D = new int [5][5];
+        int multipleOf = 3;
+
+        for (int i = 0; i < array2D.length; i++) {
+            for (int j = 0; j < array2D[i].length; j++) {
+                array2D[i][j] = multipleOf;
+                multipleOf += 3;
+            }
+        }
+        System.out.println("Results of a 5x5 array by multiples of 3");
+        for (int i = 0; i < array2D.length; i++){
+            for (int j = 0; j < array2D.length; j++){
+                System.out.printf("%4d", array2D[i][j]);
+            }
+            System.out.println();
+        }
     }
 }
