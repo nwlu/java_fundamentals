@@ -1,5 +1,7 @@
 package labs_examples.objects_classes_methods.labs.methods;
 
+import java.util.ArrayList;
+
 public class MethodTraining {
     //Exercise 1
     public static int muliply(int a, int b) {
@@ -42,6 +44,43 @@ public class MethodTraining {
 
         String test = "Java is getting easier!";
         System.out.println("Consonants: " + consonants(test));
+
+        int n = 62;
+
+        if(isPrime(n)) {
+            System.out.println(n + " is a prime number.");
+        } else{
+            System.out.println(n + " is not a prime number.");
+        }
+
+        int[] sampleArray = {4, 7, 1, 9, 2, 6};
+        int[] result = minMaxArray(sampleArray);
+
+        System.out.println("Lowest number: " + result[0]);
+        System.out.println("Highest number: " + result[1]);
+
+        int maxNum = 100;
+        int divisor1 = 3;
+        int divisor2 = 5;
+
+        ArrayList<Integer> list = divisibleArrayList(maxNum, divisor1, divisor2);
+
+        System.out.println("Numbers divisible by " + divisor1 + " and " + divisor2 + ": " + list);
+        System.out.println("Length of the list: " + list.size());
+
+        int[] numList = {1, 2, 3, 4, 5};
+
+        System.out.println("Before reversal:");
+        for (int nums : numList) {
+            System.out.print(nums + " ");
+        }
+
+        reverseArray(numList);
+
+        System.out.println("\nAfter reversal:");
+        for (int nums : numList) {
+            System.out.print(nums + " ");
+        }
     }
 
     //Exercise 2 Pass by Reference
@@ -64,13 +103,6 @@ public class MethodTraining {
         }
         return max;
     }
-        int testNumber = 29;
-        if(primeNumber(testNumber)){
-            System.out.println(testNumber + " is a prime number.");
-        } else {
-            System.out.println(testNumber + " is not a prime number.");
-        }
-        
 
     //Write a method to count all consonants (the opposite of vowels) in a String
     public static int consonants(String letters) {
@@ -87,7 +119,7 @@ public class MethodTraining {
     }
 
     //Write a method that will determine whether or not a number is prime
-    public static boolean primeNumber(int n) {
+    public static boolean isPrime(int n) {
         if (n <= 1) {
             return false;
         }
@@ -99,4 +131,47 @@ public class MethodTraining {
         return true; // No divisors found, it's prime
     }
 
+    //Write a method that will return a small array containing the highest and lowest numbers in a given numeric array,
+    //            which is passed in as an argument
+    public static int[] minMaxArray(int [] num){
+        int min = num[0];
+        int max = num[0];
+
+        for (int i = 1; i < num.length; i++) {
+            if (num[i] < min) {
+                min = num[i];
+            } else if (num[i] > max) {
+                max = num[i];
+            }
+        }
+        return new int[]{min, max};
+    }
+    //Exercise 7
+    public static ArrayList<Integer> divisibleArrayList(int maxNum, int divisor1, int divisor2) {
+        ArrayList<Integer> result = new ArrayList<>();
+
+        for (int i = 0; i <= maxNum; i++) {
+            if (i % divisor1 == 0 && i % divisor2 == 0) {
+                result.add(i);
+            }
+        }
+        return result;
+    }
+    //Exercise 8
+    public static void reverseArray(int[] arr) {
+        int temp;  // Only one extra variable
+        int left = 0;
+        int right = arr.length - 1;
+
+        while (left < right) {
+            // Swap values
+            temp = arr[left];
+            arr[left] = arr[right];
+            arr[right] = temp;
+
+            // Move indices toward the center
+            left++;
+            right--;
+        }
+    }
 }
