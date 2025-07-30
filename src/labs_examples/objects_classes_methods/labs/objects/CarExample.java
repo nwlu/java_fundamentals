@@ -96,3 +96,6 @@ class Car {
     }
 }
 
+class Tire {
+
+}
