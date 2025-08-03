@@ -16,6 +16,10 @@ public class Exercise_06 {
 
     public static void main(String[] args){
         int[] nums = {45, 87, 62, 99, 1, 42, 12};
+        int[] nums2 = new int[]{45, 87, 62, 99, 1, 42, 12};
+
+        String[] names = {"Nick", "Nikita", "Ryan"};
+        names[2] = "John";
 
         int temp;
 
@@ -31,8 +35,8 @@ public class Exercise_06 {
         }
         System.out.print("Contents of array after for loop - ");
         // print each element of the array to verify reverse order
-        for(int i : nums){
-            System.out.print(i + " ");
+        for(int num : nums){
+            System.out.print(num + " ");
         }
     }
 
