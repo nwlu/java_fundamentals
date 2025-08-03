@@ -6,6 +6,8 @@ class AirplaneExample {
     public static void main(String[] args) {
         PlaneEngine engine = new PlaneEngine("piston");
         Plane myPlane = new Plane(engine, "American", "Boeing", 500, 459);
+        Crew planeCrew = new Crew("pilot", "service");
+        Capacity planeCapacity = new Capacity("passenger", 500);
         System.out.println(myPlane.getEngine().getEngineType());
         myPlane.getEngine().setEngineType("jet");
         System.out.println(myPlane.getEngine().getEngineType());
