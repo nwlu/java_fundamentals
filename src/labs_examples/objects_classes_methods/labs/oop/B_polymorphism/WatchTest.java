@@ -2,27 +2,25 @@ package labs_examples.objects_classes_methods.labs.oop.B_polymorphism;
 
 public class WatchTest {
     public static void main(String[] args) {
-        WatchType rolex = new WatchType("Rolex");
-        //StrapType bracelet = new StrapType(false);
-        Time show = new Time("Rolex");
-        Watch watch1 = new Watch("Rolex", "Daytona", "stainless steel");
-        System.out.println("My new watch is a " + watch1.getBrand() + " ");
-        System.out.println("The watch is " + watch1.showTime());
-        System.out.println("The " + watch1.getBrand() + " " + watch1.getModel() + " has a " + watch1.getBracelet() +
+        MechanicalWatch mechanicalRolex = new MechanicalWatch("Rolex", "Daytona", "stainless steel");
+        System.out.println("My new watch is a " + mechanicalRolex.getBrand() + " ");
+        System.out.println("The watch is " + mechanicalRolex.showTime());
+        System.out.println("The " + mechanicalRolex.getBrand() + " " + mechanicalRolex.getModel() + " has a " + mechanicalRolex.getBracelet() +
                 " bracelet");
 
-        Watch watch2 = new Watch("Omega", "Aquaterra", "NATO");
-        System.out.println("My second watch is a " + watch2.getBrand() + " ");
-        System.out.println("The watch is " + watch2.showTime("IST"));
-        System.out.println("The " + watch2.getBrand() + " " + watch2.getModel() + " has a " + watch2.getBracelet() +
+        mechanicalRolex.windUp();
+
+        SmartWatch smartApple = new SmartWatch("Apple", "Watch1", "rubber", "lithium");
+        System.out.println("My second watch is a " + smartApple.getBrand() + " ");
+        System.out.println("The watch is " + smartApple.showTime("IST"));
+        System.out.println("The " + smartApple.getBrand() + " " + smartApple.getModel() + " has a " + smartApple.getBracelet() +
                 " bracelet");
 
-        SmartWatch watch3 = new SmartWatch("Garmin", "Fenix", "rubber");
-        System.out.println("My third watch is a " + watch3.getBrand() + " ");
-        System.out.println("The watch is " + watch3.showTime("PST"));
-        System.out.println("The " + watch3.getBrand() + " " + watch3.getModel() + " has a " + watch3.getBracelet() +
-                " bracelet");
+        smartApple.charge();
+        smartApple.getBatteryLevel();
 
+        System.out.println(smartApple.showTime());
+        System.out.println(mechanicalRolex.showTime());
     }
 }
 
@@ -30,11 +28,26 @@ interface Chargeable {
     void charge();
 }
 
-class WatchType {
-    private String brand;
+class TimePiece {
 
-    public WatchType(String brand) {
+    public String showTime() {
+        return "Timepiece: showing the current time";
+    }
+
+    public String showTime(String timezone) {
+        return "Timepiece: current timezone";
+    }
+}
+
+class WristWatch extends TimePiece{
+    private String brand;
+    private String model;
+    private String bracelet;
+
+    public WristWatch(String brand, String model, String bracelet) {
         this.brand = brand;
+        this.model = model;
+        this.bracelet = bracelet;
     }
 
     public String getBrand() {
@@ -44,29 +57,12 @@ class WatchType {
     public void setBrand(String brand) {
         this.brand = brand;
     }
-}
 
-class Time extends WatchType {
-    public Time(String brand) {
-        super(brand);
-    }
-
-    public String showTime() {
-        return "showing the current time";
-    }
-
-    public String showTime(String timezone) {
-        return "current timezone";
-    }
-}
-
-class Watch extends Time implements Chargeable {
-    private String model;
-    private String bracelet;
-
-    public Watch(String brand, String model, String bracelet) {
-        super(brand);
+    public void setModel(String model) {
         this.model = model;
+    }
+
+    public void setBracelet(String bracelet) {
         this.bracelet = bracelet;
     }
 
@@ -77,31 +73,45 @@ class Watch extends Time implements Chargeable {
     public String getBracelet() {
         return bracelet;
     }
+}
+
+class MechanicalWatch extends WristWatch {
+    public MechanicalWatch(String brand, String model, String bracelet) {
+        super(brand, model, bracelet);
+    }
+
+    public void windUp (){
+        System.out.println("Winding my watch");
+    }
 
     @Override
     public String showTime(String timezone) {
-        return getBrand() + " " + model + ": showing time in " + timezone;
+        return "Mechanical: " + getBrand() + " " + getModel() + ": showing time in " + timezone;
     }
-
-    @Override
-    public void charge() {
-        System.out.println(getBrand() + " " + getModel() + ": this watch is mechanical, so no need to charge");
-    }
-
 }
-class SmartWatch extends Watch {
-    public SmartWatch(String brand, String model, String bracelet) {
+class SmartWatch extends WristWatch implements Chargeable{
+    private String battery;
+
+    public SmartWatch(String brand, String model, String bracelet, String battery) {
         super(brand, model, bracelet);
+        this.battery = battery;
+    }
+
+    public void getBatteryLevel() {
+        System.out.println("This watch is fully charged");
+    }
+
+    public String getBattery() {
+        return battery;
+    }
+
+    public void setBattery(String battery) {
+        this.battery = battery;
     }
 
     @Override
     public String showTime() {
-        return getBrand() + " " + getModel() + ": current time and message displayed";
-    }
-
-    @Override
-    public String showTime(String timezone) {
-        return getBrand() + " " + getModel() + ": time in timezone " + timezone;
+        return "SmartWatch " + getBrand() + " " + getModel() + ": current time and message displayed";
     }
 
     @Override
