@@ -16,7 +16,6 @@ class TryAgainAgain {
         int b = 5;
         int c = 0;
 
-        ArrayList
         try{
             int x = a / b;
         }

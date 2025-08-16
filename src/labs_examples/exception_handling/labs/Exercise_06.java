@@ -7,3 +7,19 @@ package labs_examples.exception_handling.labs;
  *
  */
 
+class FindIndex {
+    public void findIndex() throws ArrayIndexOutOfBoundsException {
+        int[] array = {2, 6, 23, 8, 24};
+        System.out.println("Give me the number that is at index 10 " + array[10]);
+    }
+
+    public static void main(String[] args) {
+        FindIndex obj = new FindIndex();
+
+        try{
+            obj.findIndex();
+        }catch (ArrayIndexOutOfBoundsException e){
+            System.out.println("Array Index Out Of Bounds Exception caught");
+        }
+    }
+}
